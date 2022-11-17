@@ -1,12 +1,13 @@
 /* Imports */
 
-import { fetchBooks, fetchMovies, fetchShows } from './fetch-utils.js';
-import { renderBook, renderMovie, renderShow } from './render-utils.js';
+import { fetchAlbums, fetchBooks, fetchMovies, fetchShows } from './fetch-utils.js';
+import { renderAlbum, renderBook, renderMovie, renderShow } from './render-utils.js';
 
 /* Get DOM Elements */
 const showsContainer = document.getElementById('shows-list');
 const moviesContainer = document.getElementById('movies-list');
 const booksContainer = document.getElementById('books-list');
+const albumsContainer = document.getElementById('albums-list');
 /* State */
 
 /* Events */
@@ -43,6 +44,16 @@ window.addEventListener('load', async () => {
     for (let book of books) {
         const bookEl = renderBook(book);
         booksContainer.append(bookEl);
+    }
+});
+
+// display albums on page load
+window.addEventListener('load', async () => {
+    const albums = await fetchAlbums();
+
+    for (let album of albums) {
+        const albumEl = renderAlbum(album);
+        albumsContainer.append(albumEl);
     }
 });
 

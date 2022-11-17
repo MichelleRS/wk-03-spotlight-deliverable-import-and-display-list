@@ -23,3 +23,9 @@ export async function fetchBooks() {
     const response = await client.from('books').select('*');
     return response.data;
 }
+
+// albums
+export async function fetchAlbums() {
+    const response = await client.from('albums').select('*');
+    return response.data;
+}

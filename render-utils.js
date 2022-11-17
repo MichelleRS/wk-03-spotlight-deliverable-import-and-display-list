@@ -72,3 +72,37 @@ export function renderBook(book) {
     // return div container
     return div;
 }
+
+// album
+export function renderAlbum(album) {
+    // create div container for each album
+    const div = document.createElement('div');
+
+    // ELEMENTS
+    // add album title
+    const title = document.createElement('h2');
+    title.textContent = album.album_title;
+
+    // add artist
+    const artist = document.createElement('p');
+    artist.textContent = `Artist: ${album.artist}`;
+
+    // add release year
+    const year = document.createElement('p');
+    year.textContent = `Released in: ${album.release_year}`;
+
+    // render array for genre
+    const ul = document.createElement('ul');
+    for (let genre of album.genre) {
+        const li = document.createElement('li');
+        li.textContent = genre;
+        ul.append(li);
+    }
+    ul.textContent = `Genre: ${album.genre}`;
+
+    // append elements to div container
+    div.append(title, artist, year, ul);
+
+    // return div container
+    return div;
+}

@@ -1,12 +1,12 @@
 /* Imports */
 
-import { fetchMovies, fetchShows } from './fetch-utils.js';
-import { renderMovie, renderShow } from './render-utils.js';
+import { fetchBooks, fetchMovies, fetchShows } from './fetch-utils.js';
+import { renderBook, renderMovie, renderShow } from './render-utils.js';
 
 /* Get DOM Elements */
 const showsContainer = document.getElementById('shows-list');
 const moviesContainer = document.getElementById('movies-list');
-
+const booksContainer = document.getElementById('books-list');
 /* State */
 
 /* Events */
@@ -34,6 +34,16 @@ window.addEventListener('load', async () => {
         moviesContainer.append(movieEl);
     }
     console.log('hello');
+});
+
+// display books on page load
+window.addEventListener('load', async () => {
+    const books = await fetchBooks();
+
+    for (let book of books) {
+        const bookEl = renderBook(book);
+        booksContainer.append(bookEl);
+    }
 });
 
 /* Display Functions */

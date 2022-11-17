@@ -47,3 +47,28 @@ export function renderMovie(movie) {
     // return div container
     return div;
 }
+
+// book
+export function renderBook(book) {
+    // create div container for each book
+    const div = document.createElement('div');
+
+    // ELEMENTS
+    // add title
+    const title = document.createElement('h2');
+    title.textContent = book.title;
+
+    // add author
+    const author = document.createElement('p');
+    author.textContent = book.author;
+
+    // add publication date
+    const date = document.createElement('p');
+    date.textContent = `Published on ${book.publication_date}`;
+
+    // append elements to div container
+    div.append(title, author, date);
+
+    // return div container
+    return div;
+}

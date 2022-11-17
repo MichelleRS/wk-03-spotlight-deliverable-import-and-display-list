@@ -1,27 +1,26 @@
-## The Golden Rule:
+# Week 03 Spotlight Deliverable Import and Display List
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+## Goal
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+Asynchronously fetch and render 4 separate lists of things to the same index.html file.
 
-## Making a plan
+## Workflow
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Look at the drawing and name the HTML elements you'll need to realize your vision**
-1. **Look at the drawing and imagine using the app. What _state_ do you need to track?**
-1. **For each HTML element ask: Why do I need this? (i.e., "we need div to display the results in")**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How" (i.e., `resultsEl.textContent = newResults`)**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change? Does any DOM update?**
-1. **Think about how to validate each of your features according to a Definition of Done. (Hint: console.log usually helps here.)**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+-   Connect Supabase CDN to index.html
+-   In fetch-utils set up Supabase client with KEY and URL
 
-Additional considerations:
+### Repeat the following process 4 times:
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+#### In Supabase:
+
+-   come up with a domain for this data (ex: 'cats') - create a 'cats' table with at least 4 columns
+-   create at least three rows in your table.
+
+#### In app:
+
+-   in render-utils.js, write a render function (with at least a `div.cat-item` and two `p` tags) for your domain accepting one object and returning a DOM element
+-   in fetch-utils.js, add a fetch function called `getCats()` to fetch all cats asynchronously
+-   in app.js, use `window.addEventListener('load', () => {})` to fetch and display your data from Supabase
+-   in load event listener, first fetch the data, then, loop through the fetched array array, and for each object, render and appends a styled cat element to the container element you grabbed from the DOM.
+
+_Note_: do this process one domain table at a time. Do not write 4 domain tables, then 4 render functions, etc. Please work through the first domain table, then the first render function, then the first display function.

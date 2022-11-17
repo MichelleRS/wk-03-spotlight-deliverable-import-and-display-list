@@ -11,3 +11,9 @@ export async function fetchShows() {
     // return the shows object data to be used in renderShows(show)
     return response.data;
 }
+
+// movies
+export async function fetchMovies() {
+    const response = await client.from('movies').select('*');
+    return response.data;
+}
